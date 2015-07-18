@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.hugojanssen.sqlgraph.SQLFileFilter;
-import nl.hugojanssen.sqlgraph.SQLParserUtil;
+import nl.hugojanssen.sqlgraph.shared.SQLFileFilter;
+import nl.hugojanssen.sqlgraph.shared.SQLParserUtil;
 import nl.hugojanssen.sqlgraph.visitors.SQLVisitor;
 
 import org.apache.log4j.Logger;

@@ -1,4 +1,4 @@
-package nl.hugojanssen.sqlgraph;
+package nl.hugojanssen.sqlgraph.shared;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import nl.hugojanssen.sqlgraph.SQLParserUtil;
+import nl.hugojanssen.sqlgraph.shared.SQLParserUtil;
 
 import org.testng.annotations.Test;
 

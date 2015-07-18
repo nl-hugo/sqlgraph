@@ -1,4 +1,4 @@
-package nl.hugojanssen.sqlgraph;
+package nl.hugojanssen.sqlgraph.shared;
 
 import java.io.File;
 import java.io.FileNotFoundException;

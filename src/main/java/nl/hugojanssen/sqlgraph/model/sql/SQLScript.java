@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-import nl.hugojanssen.sqlgraph.SQLParserUtil;
+import nl.hugojanssen.sqlgraph.shared.SQLParserUtil;
 import nl.hugojanssen.sqlgraph.visitors.SQLVisitor;
 
 import org.apache.log4j.Logger;
