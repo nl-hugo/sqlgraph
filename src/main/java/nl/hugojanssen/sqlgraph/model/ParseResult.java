@@ -155,8 +155,8 @@ public class ParseResult extends EventObject
 	@Override
 	public String toString()
 	{
-		return "ParseResult [schema=" + this.schema + ", name=" + this.name + ", role=" + this.role + ", lineNo=" + this.lineNo + ", colNo="
-			+ this.colNo + "]";
+		return "ParseResult [schema=" + this.schema + ", name=" + this.name + ", role=" + this.role + ", lineNo=" + this.lineNo
+			+ ", colNo=" + this.colNo + "]";
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class ParseResult extends EventObject
 	 */
 	private void validateState() throws IllegalArgumentException
 	{
-		if ( this.name == null || this.name.equals( "" ) )
+		if ( this.name == null || this.name.isEmpty() )
 		{
 			throw new IllegalArgumentException( "Name must be non-null and non-empty." );
 		}

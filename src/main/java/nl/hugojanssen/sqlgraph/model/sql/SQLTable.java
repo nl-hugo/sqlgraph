@@ -1,5 +1,8 @@
 package nl.hugojanssen.sqlgraph.model.sql;
 
+import nl.hugojanssen.sqlgraph.shared.SQLConstants;
+import nl.hugojanssen.sqlgraph.shared.SQLProperties;
+
 import org.apache.log4j.Logger;
 
 public class SQLTable
@@ -28,9 +31,9 @@ public class SQLTable
 	private void validateState()
 	{
 		//TODO: name cannot be null
-		if ( this.schema == null || this.schema.equals( "" ) )
+		if ( this.schema == null || this.schema.isEmpty() )
 		{
-			this.schema = SQLConstants.DEFAULT_SCHEMA;
+			this.schema = SQLProperties.getInstance().getProperty( SQLConstants.KEY_DB_DEFAULT_SCHEMA );
 			LOG.warn( "No schema specified, assuming default " + this.schema );
 		}
 	}

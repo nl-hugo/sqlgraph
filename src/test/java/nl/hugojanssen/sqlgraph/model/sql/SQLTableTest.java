@@ -1,9 +1,8 @@
 package nl.hugojanssen.sqlgraph.model.sql;
 
 import static org.fest.assertions.Assertions.assertThat;
-
-import nl.hugojanssen.sqlgraph.model.sql.SQLConstants;
-import nl.hugojanssen.sqlgraph.model.sql.SQLTable;
+import nl.hugojanssen.sqlgraph.shared.SQLConstants;
+import nl.hugojanssen.sqlgraph.shared.SQLProperties;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -14,11 +13,14 @@ public class SQLTableTest
 
 	private SQLTable table1, table2;
 
+	private String defaultSchema;
+
 	@BeforeTest
 	public void setup()
 	{
 		this.table1 = new SQLTable( this.schema, this.name );
 		this.table2 = new SQLTable( null, this.name );
+		this.defaultSchema = SQLProperties.getInstance().getProperty( SQLConstants.KEY_DB_DEFAULT_SCHEMA );
 	}
 
 	@Test( dependsOnGroups = "construct-table", description = "Test equals" )
@@ -39,7 +41,7 @@ public class SQLTableTest
 	public void testHashCode()
 	{
 		assertThat( this.table1.hashCode() ).isEqualTo( 364251310 );
-		assertThat( this.table2.hashCode() ).isEqualTo( -1552789148 );
+		assertThat( this.table2.hashCode() ).isEqualTo( -8101825 );
 	}
 
 	@Test( groups = "construct-table", description = "Test constructor" )
@@ -59,9 +61,9 @@ public class SQLTableTest
 	@Test( dependsOnGroups = "construct-table", description = "Test validateState" )
 	public void testValidateState()
 	{
-		assertThat( this.table2.getSchema() ).isEqualTo( SQLConstants.DEFAULT_SCHEMA );
+		assertThat( this.table2.getSchema() ).isEqualTo( this.defaultSchema );
 
 		SQLTable table3 = new SQLTable( "", this.name );
-		assertThat( table3.getSchema() ).isEqualTo( SQLConstants.DEFAULT_SCHEMA );
+		assertThat( table3.getSchema() ).isEqualTo( this.defaultSchema );
 	}
 }
