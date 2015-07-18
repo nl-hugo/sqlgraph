@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="50" passed="50">
+  <reporter-output>
+  </reporter-output>
+  <suite name="TestAll" duration-ms="970" started-at="2015-07-18T06:55:38Z" finished-at="2015-07-18T06:55:39Z">
+    <groups>
+      <group name="new-edge">
+        <method signature="ModelBuilderTest.testNewEdge()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testNewEdge" class="nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest"/>
+      </group> <!-- new-edge -->
+      <group name="addfiles">
+        <method signature="SQLWorkflowTest.testAddWorkflowFile()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd]" name="testAddWorkflowFile" class="nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest"/>
+        <method signature="SQLWorkflowTest.testAddWorkflowFileNull()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd]" name="testAddWorkflowFileNull" class="nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest"/>
+      </group> <!-- addfiles -->
+      <group name="new-node">
+        <method signature="ModelBuilderTest.testNewNode()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testNewNode" class="nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest"/>
+      </group> <!-- new-node -->
+      <group name="visitors">
+        <method signature="SQLWorkflowTest.testAddVisitor()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd]" name="testAddVisitor" class="nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest"/>
+      </group> <!-- visitors -->
+      <group name="add-node">
+        <method signature="ModelBuilderTest.testAddNode()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testAddNode" class="nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest"/>
+      </group> <!-- add-node -->
+      <group name="set-visitors">
+        <method signature="SQLStatementTest.testSetVisitors()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest@11e2b21]" name="testSetVisitors" class="nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest"/>
+      </group> <!-- set-visitors -->
+      <group name="construct-model">
+        <method signature="ModelBuilderTest.testConstructor()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testConstructor" class="nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest"/>
+      </group> <!-- construct-model -->
+      <group name="construct-workflow">
+        <method signature="SQLWorkflowTest.testConstructor()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd]" name="testConstructor" class="nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest"/>
+      </group> <!-- construct-workflow -->
+      <group name="construct-statement">
+        <method signature="SQLStatementTest.testConstructor()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest@11e2b21]" name="testConstructor" class="nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest"/>
+      </group> <!-- construct-statement -->
+      <group name="construct-table">
+        <method signature="SQLTableTest.testSQLTable()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16]" name="testSQLTable" class="nl.hugojanssen.sqlgraph.model.sql.SQLTableTest"/>
+      </group> <!-- construct-table -->
+      <group name="add-edge">
+        <method signature="ModelBuilderTest.testAddEdge()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testAddEdge" class="nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest"/>
+      </group> <!-- add-edge -->
+    </groups>
+    <test name="visitors" duration-ms="622" started-at="2015-07-18T06:55:38Z" finished-at="2015-07-18T06:55:39Z">
+      <class name="nl.hugojanssen.sqlgraph.visitors.TableVisitorUpdateTest">
+        <test-method status="PASS" signature="testReferencedUpdate()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorUpdateTest@862d13]" name="testReferencedUpdate" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests update statements with referenced table" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReferencedUpdate -->
+        <test-method status="PASS" signature="testReferencedUpdate2()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorUpdateTest@862d13]" name="testReferencedUpdate2" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests update statements with multiple referenced tables" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReferencedUpdate2 -->
+        <test-method status="PASS" signature="testReferencedWithWhere()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorUpdateTest@862d13]" name="testReferencedWithWhere" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests update statements referenced table and where condition" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReferencedWithWhere -->
+        <test-method status="PASS" signature="testResultSet()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorUpdateTest@862d13]" name="testResultSet" duration-ms="1" started-at="2015-07-18T08:55:39Z" description="Tests size of the resultset" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testResultSet -->
+        <test-method status="PASS" signature="testSimpleUpdate()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorUpdateTest@862d13]" name="testSimpleUpdate" duration-ms="1" started-at="2015-07-18T08:55:39Z" description="Tests update statements with one target table" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSimpleUpdate -->
+      </class> <!-- nl.hugojanssen.sqlgraph.visitors.TableVisitorUpdateTest -->
+      <class name="nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableAsTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableAsTest@3f6e5a]" name="setup" is-config="true" duration-ms="531" started-at="2015-07-18T08:55:38Z" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableTest@1a28e23]" name="setup" is-config="true" duration-ms="11" started-at="2015-07-18T08:55:39Z" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorInsertTest@17ec251]" name="setup" is-config="true" duration-ms="14" started-at="2015-07-18T08:55:39Z" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorJoinTest@1077c9d]" name="setup" is-config="true" duration-ms="12" started-at="2015-07-18T08:55:39Z" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorUpdateTest@862d13]" name="setup" is-config="true" duration-ms="9" started-at="2015-07-18T08:55:39Z" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testCreateFilmsRecent()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableAsTest@3f6e5a]" name="testCreateFilmsRecent" duration-ms="15" started-at="2015-07-18T08:55:39Z" description="Creates films_recent table" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateFilmsRecent -->
+        <test-method status="PASS" signature="testResultSet()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableAsTest@3f6e5a]" name="testResultSet" duration-ms="1" started-at="2015-07-18T08:55:39Z" description="Tests size of the resultset" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testResultSet -->
+      </class> <!-- nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableAsTest -->
+      <class name="nl.hugojanssen.sqlgraph.visitors.TableVisitorInsertTest">
+        <test-method status="PASS" signature="testInsert1()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorInsertTest@17ec251]" name="testInsert1" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests insert statements with values, single row, with named columns" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInsert1 -->
+        <test-method status="PASS" signature="testInsert2()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorInsertTest@17ec251]" name="testInsert2" duration-ms="1" started-at="2015-07-18T08:55:39Z" description="Tests insert statements with values, multiple rows, no named columns" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInsert2 -->
+        <test-method status="PASS" signature="testInsert3()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorInsertTest@17ec251]" name="testInsert3" duration-ms="1" started-at="2015-07-18T08:55:39Z" description="Tests insert statements with subquery, named columns, with function" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInsert3 -->
+        <test-method status="PASS" signature="testInsert4()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorInsertTest@17ec251]" name="testInsert4" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests insert statements with subquery, no named columns, no alias" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInsert4 -->
+        <test-method status="PASS" signature="testInsert5()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorInsertTest@17ec251]" name="testInsert5" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests insert statements with subquery, no named columns, with alias" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInsert5 -->
+        <test-method status="PASS" signature="testResultSet()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorInsertTest@17ec251]" name="testResultSet" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests size of the resultset" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testResultSet -->
+      </class> <!-- nl.hugojanssen.sqlgraph.visitors.TableVisitorInsertTest -->
+      <class name="nl.hugojanssen.sqlgraph.visitors.TableVisitorJoinTest">
+        <test-method status="PASS" signature="testJoinInWhere()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorJoinTest@1077c9d]" name="testJoinInWhere" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests insert statements with join in where condition" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testJoinInWhere -->
+        <test-method status="PASS" signature="testLeftJoin()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorJoinTest@1077c9d]" name="testLeftJoin" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests insert statements left join" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLeftJoin -->
+        <test-method status="PASS" signature="testNestedSubquery()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorJoinTest@1077c9d]" name="testNestedSubquery" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests insert statements with join in nested subquery" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNestedSubquery -->
+        <test-method status="PASS" signature="testResultSet()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorJoinTest@1077c9d]" name="testResultSet" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests size of the resultset" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testResultSet -->
+        <test-method status="PASS" signature="testUnionAll()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorJoinTest@1077c9d]" name="testUnionAll" duration-ms="1" started-at="2015-07-18T08:55:39Z" description="Tests insert statements with union all" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUnionAll -->
+        <test-method status="PASS" signature="testSubquery()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorJoinTest@1077c9d]" name="testSubquery" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests insert statements with join on subquery" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSubquery -->
+      </class> <!-- nl.hugojanssen.sqlgraph.visitors.TableVisitorJoinTest -->
+      <class name="nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableTest">
+        <test-method status="PASS" signature="testCreateFilms()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableTest@1a28e23]" name="testCreateFilms" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Creates films table" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateFilms -->
+        <test-method status="PASS" signature="testCreateTableDistributors()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableTest@1a28e23]" name="testCreateTableDistributors" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Creates distributors table" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateTableDistributors -->
+        <test-method status="PASS" signature="testResultSet()[pri:0, instance:nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableTest@1a28e23]" name="testResultSet" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests size of the resultset" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testResultSet -->
+      </class> <!-- nl.hugojanssen.sqlgraph.visitors.TableVisitorCreateTableTest -->
+    </test> <!-- visitors -->
+    <test name="model" duration-ms="276" started-at="2015-07-18T06:55:39Z" finished-at="2015-07-18T06:55:39Z">
+      <class name="nl.hugojanssen.sqlgraph.model.graph.CopyOfModelBuilderTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.CopyOfModelBuilderTest@1a1a5f3]" name="setup" is-config="true" duration-ms="169" started-at="2015-07-18T08:55:39Z" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest@11e2b21]" name="setup" is-config="true" duration-ms="4" started-at="2015-07-18T08:55:39Z" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="setup" is-config="true" duration-ms="0" started-at="2015-07-18T08:55:39Z" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16]" name="setup" is-config="true" duration-ms="1" started-at="2015-07-18T08:55:39Z" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd]" name="setup" is-config="true" duration-ms="1" started-at="2015-07-18T08:55:39Z" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+      </class> <!-- nl.hugojanssen.sqlgraph.model.graph.CopyOfModelBuilderTest -->
+      <class name="nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest">
+        <test-method status="PASS" signature="testConstructor()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest@11e2b21]" name="testConstructor" duration-ms="1" started-at="2015-07-18T08:55:39Z" description="Tests constructor" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testConstructor -->
+        <test-method status="PASS" signature="testSetVisitors()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest@11e2b21]" name="testSetVisitors" duration-ms="1" depends-on-groups="construct-statement" started-at="2015-07-18T08:55:39Z" description="Tests setVisitors" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetVisitors -->
+        <test-method status="PASS" signature="testVisit()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest@11e2b21]" name="testVisit" duration-ms="0" depends-on-groups="set-visitors" started-at="2015-07-18T08:55:39Z" description="Tests visit" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVisit -->
+      </class> <!-- nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest -->
+      <class name="nl.hugojanssen.sqlgraph.model.sql.SQLTableTest">
+        <test-method status="PASS" signature="testSQLTable()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16]" name="testSQLTable" duration-ms="1" started-at="2015-07-18T08:55:39Z" description="Test constructor" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSQLTable -->
+        <test-method status="PASS" signature="testEquals()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16]" name="testEquals" duration-ms="2" depends-on-groups="construct-table" started-at="2015-07-18T08:55:39Z" description="Test equals" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method status="PASS" signature="testHashCode()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16]" name="testHashCode" duration-ms="1" depends-on-groups="construct-table" started-at="2015-07-18T08:55:39Z" description="Test hashCode" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testHashCode -->
+        <test-method status="PASS" signature="testToString()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16]" name="testToString" duration-ms="0" depends-on-groups="construct-table" started-at="2015-07-18T08:55:39Z" description="Test toString" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testToString -->
+        <test-method status="PASS" signature="testValidateState()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16]" name="testValidateState" duration-ms="0" depends-on-groups="construct-table" started-at="2015-07-18T08:55:39Z" description="Test validateState" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidateState -->
+      </class> <!-- nl.hugojanssen.sqlgraph.model.sql.SQLTableTest -->
+      <class name="nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest">
+        <test-method status="PASS" signature="testConstructor()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testConstructor" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests constructor" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testConstructor -->
+        <test-method status="PASS" signature="testNewNode()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testNewNode" duration-ms="2" depends-on-groups="construct-model" started-at="2015-07-18T08:55:39Z" description="Tests newNode" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNewNode -->
+        <test-method status="PASS" signature="testAddNode()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testAddNode" duration-ms="5" depends-on-groups="new-node" started-at="2015-07-18T08:55:39Z" description="Tests addNode" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNode -->
+        <test-method status="PASS" signature="testNodes()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testNodes" duration-ms="2" depends-on-groups="new-node" started-at="2015-07-18T08:55:39Z" description="Tests " finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNodes -->
+        <test-method status="PASS" signature="testEqualsNode()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testEqualsNode" duration-ms="1" depends-on-groups="add-node" started-at="2015-07-18T08:55:39Z" description="Tests equals (Node)" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEqualsNode -->
+        <test-method status="PASS" signature="testExistsNode()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testExistsNode" duration-ms="1" depends-on-groups="add-node" started-at="2015-07-18T08:55:39Z" description="Tests exists (Node)" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testExistsNode -->
+        <test-method status="PASS" signature="testGetNodeByName()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testGetNodeByName" duration-ms="1" depends-on-groups="add-node" started-at="2015-07-18T08:55:39Z" description="Tests getNodeByName" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetNodeByName -->
+        <test-method status="PASS" signature="testGetNodeIdForName()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testGetNodeIdForName" duration-ms="0" depends-on-groups="add-node" started-at="2015-07-18T08:55:39Z" description="Tests getNodeIdForName" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetNodeIdForName -->
+        <test-method status="PASS" signature="testGetNodeName()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testGetNodeName" duration-ms="0" depends-on-groups="add-node" started-at="2015-07-18T08:55:39Z" description="Tests getNodeName" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetNodeName -->
+        <test-method status="PASS" signature="testNewEdge()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testNewEdge" duration-ms="3" depends-on-groups="add-node" started-at="2015-07-18T08:55:39Z" description="Tests newEdge" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNewEdge -->
+        <test-method status="PASS" signature="testAddEdge()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testAddEdge" duration-ms="5" depends-on-groups="new-edge" started-at="2015-07-18T08:55:39Z" description="Tests addEdge" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddEdge -->
+        <test-method status="PASS" signature="testEqualsEdge()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testEqualsEdge" duration-ms="1" depends-on-groups="add-edge" started-at="2015-07-18T08:55:39Z" description="Tests equals (Edge)" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEqualsEdge -->
+        <test-method status="PASS" signature="testExistsEdge()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testExistsEdge" duration-ms="1" depends-on-groups="add-edge" started-at="2015-07-18T08:55:39Z" description="Tests exists (Edge) " finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testExistsEdge -->
+        <test-method status="PASS" signature="testGetEdgeName()[pri:0, instance:nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e]" name="testGetEdgeName" duration-ms="1" depends-on-groups="add-edge" started-at="2015-07-18T08:55:39Z" description="Tests getEdgeName" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetEdgeName -->
+      </class> <!-- nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest -->
+      <class name="nl.hugojanssen.sqlgraph.model.sql.EClauseTypeTest">
+        <test-method status="PASS" signature="testValues()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.EClauseTypeTest@1962ecd]" name="testValues" duration-ms="0" started-at="2015-07-18T08:55:39Z" description="Tests EClauseType values" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValues -->
+      </class> <!-- nl.hugojanssen.sqlgraph.model.sql.EClauseTypeTest -->
+      <class name="nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest">
+        <test-method status="PASS" signature="testConstructor()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd]" name="testConstructor" duration-ms="1" started-at="2015-07-18T08:55:39Z" description="Tests constructor" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testConstructor -->
+        <test-method status="PASS" signature="testAddWorkflowFile()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd]" name="testAddWorkflowFile" duration-ms="2" depends-on-groups="construct-workflow" started-at="2015-07-18T08:55:39Z" description="Tests addWorkflowFile" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddWorkflowFile -->
+        <test-method status="PASS" signature="testAddWorkflowFileNull()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd]" name="testAddWorkflowFileNull" duration-ms="1" depends-on-groups="construct-workflow" started-at="2015-07-18T08:55:39Z" description="Tests addWorkflowFile null" finished-at="2015-07-18T08:55:39Z">
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[File should not be null.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: File should not be null.
+	at nl.hugojanssen.sqlgraph.SQLParserUtil.validateFileOrDirectory(SQLParserUtil.java:23)
+	at nl.hugojanssen.sqlgraph.model.sql.SQLWorkflow.addWorkflowFile(SQLWorkflow.java:40)
+	at nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest.testAddWorkflowFileNull(SQLWorkflowTest.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddWorkflowFileNull -->
+        <test-method status="PASS" signature="testAddVisitor()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd]" name="testAddVisitor" duration-ms="0" depends-on-groups="addfiles" started-at="2015-07-18T08:55:39Z" description="Test addVisitor" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddVisitor -->
+        <test-method status="PASS" signature="testParse()[pri:0, instance:nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd]" name="testParse" duration-ms="49" depends-on-groups="visitors" started-at="2015-07-18T08:55:39Z" description="Test parse" finished-at="2015-07-18T08:55:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testParse -->
+      </class> <!-- nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest -->
+    </test> <!-- model -->
+  </suite> <!-- TestAll -->
+</testng-results>

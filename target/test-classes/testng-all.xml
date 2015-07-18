@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+ 
+<suite name="TestAll">
+ 
+	<test name="visitors">
+		<packages>
+			<package name="nl.hugojanssen.sqlgraph.visitors.*" />
+		</packages>
+	</test>
+
+	<test name="model">
+		<packages>
+			<package name="nl.hugojanssen.sqlgraph.model.*" />
+		</packages>
+	</test>
+ 
+</suite>

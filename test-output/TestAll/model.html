@@ -1,0 +1,252 @@
+<html>
+<head>
+<title>TestNG:  model</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>model</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>28/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sat Jul 18 08:55:39 CEST 2015</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (276 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testAddEdge()'><b>testAddEdge</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests addEdge</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testAddNode()'><b>testAddNode</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests addNode</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest.testAddVisitor()'><b>testAddVisitor</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest<br>Test method: Test addVisitor</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest.testAddWorkflowFile()'><b>testAddWorkflowFile</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest<br>Test method: Tests addWorkflowFile</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest.testAddWorkflowFileNull()'><b>testAddWorkflowFileNull</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest<br>Test method: Tests addWorkflowFile null</td>
+<td><div><pre>java.lang.IllegalArgumentException: File should not be null.
+	at nl.hugojanssen.sqlgraph.SQLParserUtil.validateFileOrDirectory(SQLParserUtil.java:23)
+	at nl.hugojanssen.sqlgraph.model.sql.SQLWorkflow.addWorkflowFile(SQLWorkflow.java:40)
+	at nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest.testAddWorkflowFileNull(SQLWorkflowTest.java:50)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace10985403", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace10985403'><pre>java.lang.IllegalArgumentException: File should not be null.
+	at nl.hugojanssen.sqlgraph.SQLParserUtil.validateFileOrDirectory(SQLParserUtil.java:23)
+	at nl.hugojanssen.sqlgraph.model.sql.SQLWorkflow.addWorkflowFile(SQLWorkflow.java:40)
+	at nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest.testAddWorkflowFileNull(SQLWorkflowTest.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+</pre></div></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testConstructor()'><b>testConstructor</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests constructor</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest.testConstructor()'><b>testConstructor</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest<br>Test method: Tests constructor</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest@11e2b21</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest.testConstructor()'><b>testConstructor</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest<br>Test method: Tests constructor</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLTableTest.testEquals()'><b>testEquals</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLTableTest<br>Test method: Test equals</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testEqualsEdge()'><b>testEqualsEdge</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests equals (Edge)</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testEqualsNode()'><b>testEqualsNode</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests equals (Node)</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testExistsEdge()'><b>testExistsEdge</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests exists (Edge) </td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testExistsNode()'><b>testExistsNode</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests exists (Node)</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testGetEdgeName()'><b>testGetEdgeName</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests getEdgeName</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testGetNodeByName()'><b>testGetNodeByName</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests getNodeByName</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testGetNodeIdForName()'><b>testGetNodeIdForName</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests getNodeIdForName</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testGetNodeName()'><b>testGetNodeName</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests getNodeName</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLTableTest.testHashCode()'><b>testHashCode</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLTableTest<br>Test method: Test hashCode</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testNewEdge()'><b>testNewEdge</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests newEdge</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testNewNode()'><b>testNewNode</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests newNode</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest.testNodes()'><b>testNodes</b><br>Test class: nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest<br>Test method: Tests </td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.graph.ModelBuilderTest@176bf9e</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest.testParse()'><b>testParse</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest<br>Test method: Test parse</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLWorkflowTest@1c6a6fd</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLTableTest.testSQLTable()'><b>testSQLTable</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLTableTest<br>Test method: Test constructor</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest.testSetVisitors()'><b>testSetVisitors</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest<br>Test method: Tests setVisitors</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest@11e2b21</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLTableTest.testToString()'><b>testToString</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLTableTest<br>Test method: Test toString</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLTableTest.testValidateState()'><b>testValidateState</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLTableTest<br>Test method: Test validateState</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLTableTest@daab16</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.EClauseTypeTest.testValues()'><b>testValues</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.EClauseTypeTest<br>Test method: Tests EClauseType values</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.EClauseTypeTest@1962ecd</td></tr>
+<tr>
+<td title='nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest.testVisit()'><b>testVisit</b><br>Test class: nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest<br>Test method: Tests visit</td>
+<td></td>
+<td>0</td>
+<td>nl.hugojanssen.sqlgraph.model.sql.SQLStatementTest@11e2b21</td></tr>
+</table><p>
+</body>
+</html>
