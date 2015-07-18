@@ -28,6 +28,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 		<gsp.version>1.6.0.3</gsp.version>
 		<jcolorbrewer.version>RELEASE</jcolorbrewer.version>
 		<gephi-toolkit.version>RELEASE</gephi-toolkit.version>
+		<javadoc.version>2.10.3</javadoc.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<repositories>
@@ -91,4 +92,14 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${javadoc.version}</version>
+				<configuration></configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
