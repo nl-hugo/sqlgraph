@@ -1,6 +1,10 @@
+# eclipse files
 .classpath
 .project
 .settings/
 
+# output files
+target/
+test-output/
 log/
 *.txt
