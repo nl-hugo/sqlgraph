@@ -5,7 +5,6 @@ import java.awt.Color;
 import nl.hugojanssen.sqlgraph.model.ParseResult;
 import nl.hugojanssen.sqlgraph.model.sql.EClauseType;
 
-import org.gephi.graph.api.Node;
 import org.jcolorbrewer.ColorBrewer;
 
 /**
@@ -39,12 +38,14 @@ public class ParseResultNode extends ParseResult implements NodeRenderProperties
 
 		//TODO: return color based on table prefix
 		return colors[5];
+		//		return Color.GREEN;
 	}
 
 	@Override
 	public String getLabel()
 	{
-		return this.getName();
+		//		return this.getName();
+		return this.getSQLId();
 	}
 
 	@Override
@@ -59,13 +60,13 @@ public class ParseResultNode extends ParseResult implements NodeRenderProperties
 		return this.getId();
 	}
 
-	public Node toNode()
-	{
-		Node node = ModelBuilder.getInstance().newNode( this.getSQLId() );
-		node.getNodeData().setLabel( this.getLabel() );
-		node.getNodeData().setSize( this.getSize() );
-		node.getNodeData().setColor( this.getColor().getRed(), this.getColor().getGreen(), this.getColor().getBlue() );
-		node.getNodeData().setAlpha( this.getAlpha() );
-		return node;
-	}
+	//	public Node toNode()
+	//	{
+	//		Node node = ModelBuilder.getInstance().newNode( this.getSQLId() );
+	//		node.getNodeData().setLabel( this.getLabel() );
+	//		node.getNodeData().setSize( this.getSize() );
+	//		node.getNodeData().setColor( this.getColor().getRed(), this.getColor().getGreen(), this.getColor().getBlue() );
+	//		node.getNodeData().setAlpha( this.getAlpha() );
+	//		return node;
+	//	}
 }

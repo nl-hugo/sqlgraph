@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nl.hugojanssen.sqlgraph.model.ParseResult;
-import nl.hugojanssen.sqlgraph.model.graph.ModelBuilder;
 import nl.hugojanssen.sqlgraph.model.graph.ParseResultNode;
+import nl.hugojanssen.sqlgraph.model.graph.SQLGraphModel;
 import nl.hugojanssen.sqlgraph.model.sql.EClauseType;
 import nl.hugojanssen.sqlgraph.model.sql.SQLScript;
 
@@ -149,7 +149,7 @@ public class TableVisitorListener implements VisitorListener
 		if ( this.target != null )
 		{
 
-			ModelBuilder.getInstance().addGraphElements( this.currFile, this.target, this.sources );
+			SQLGraphModel.getInstance().addGraphElements( this.currFile.getName(), this.target, this.sources );
 		}
 		else
 		{

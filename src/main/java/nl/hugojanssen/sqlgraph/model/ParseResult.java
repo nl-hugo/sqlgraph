@@ -3,6 +3,8 @@ package nl.hugojanssen.sqlgraph.model;
 import java.util.EventObject;
 
 import nl.hugojanssen.sqlgraph.model.sql.EClauseType;
+import nl.hugojanssen.sqlgraph.shared.SQLConstants;
+import nl.hugojanssen.sqlgraph.shared.SQLProperties;
 
 /**
  * The ParseResult object holds details about the table that was found in a SQL statement by the parser.
@@ -12,7 +14,7 @@ import nl.hugojanssen.sqlgraph.model.sql.EClauseType;
 @SuppressWarnings( "serial" )
 public class ParseResult extends EventObject
 {
-	private final String schema;
+	private String schema;
 
 	private final String name;
 
@@ -167,6 +169,10 @@ public class ParseResult extends EventObject
 		if ( this.name == null || this.name.isEmpty() )
 		{
 			throw new IllegalArgumentException( "Name must be non-null and non-empty." );
+		}
+		if ( this.schema == null || this.schema.isEmpty() )
+		{
+			this.schema = SQLProperties.getInstance().getProperty( SQLConstants.KEY_DB_DEFAULT_SCHEMA );
 		}
 		if ( this.role == null || !this.role.equals( EClauseType.SOURCE ) || !this.role.equals( EClauseType.TARGET ) )
 		{
