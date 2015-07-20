@@ -14,4 +14,10 @@
 		</packages>
 	</test>
  
+	<test name="shared">
+		<packages>
+			<package name="nl.hugojanssen.sqlgraph.shared.*" />
+		</packages>
+	</test>
+
 </suite>

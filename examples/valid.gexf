@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2" xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd">
+  <meta lastmodifieddate="2015-07-20">
+    <creator>Gephi 0.8.1</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="directed" mode="static">
+    <nodes>
+      <node id="default.ozm_voorblad_v1_2" label="default.ozm_voorblad_v1_2">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="144.33917" y="-27.582642" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.ozm_parameters" label="default.ozm_parameters">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="-18.102936" y="498.72357" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.tmp_subtraject_omzet" label="default.tmp_subtraject_omzet">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="-363.51764" y="-174.24692" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.ozm_dbc" label="default.ozm_dbc">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="447.27533" y="30.76361" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.ozm_totaal_v1_2" label="default.ozm_totaal_v1_2">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="411.74725" y="271.00458" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.tmp_nog_te_openen_subtraject_omzet" label="default.tmp_nog_te_openen_subtraject_omzet">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="376.72577" y="241.15125" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.films_recent" label="default.films_recent">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="285.54077" y="-236.79053" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.films" label="default.films">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="-116.64728" y="491.71185" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.table1" label="default.table1">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="-23.373322" y="-435.18463" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.table2" label="default.table2">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="317.12286" y="234.65302" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.table3" label="default.table3">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="-364.63776" y="-152.11093" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.distributors" label="default.distributors">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="158.88312" y="-308.70154" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="vcs.table1" label="vcs.table1">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="296.69037" y="405.67908" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+      <node id="default.table4" label="default.table4">
+        <attvalues></attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="-347.3871" y="453.4884" z="0.0"></viz:position>
+        <viz:color r="231" g="41" b="138"></viz:color>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="default.ozm_voorblad_v1_2" target="default.ozm_voorblad_v1_2" label="ZF100-0045_omzetmonitor_voorblad.sql">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="default.ozm_parameters" target="default.ozm_voorblad_v1_2" label="ZF100-0045_omzetmonitor_voorblad.sql">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="default.tmp_subtraject_omzet" target="default.ozm_voorblad_v1_2" label="ZF100-0045_omzetmonitor_voorblad.sql">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="default.ozm_dbc" target="default.ozm_voorblad_v1_2" label="ZF100-0045_omzetmonitor_voorblad.sql">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="default.ozm_totaal_v1_2" target="default.ozm_voorblad_v1_2" label="ZF100-0045_omzetmonitor_voorblad.sql">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="default.tmp_nog_te_openen_subtraject_omzet" target="default.ozm_voorblad_v1_2" label="ZF100-0045_omzetmonitor_voorblad.sql">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="default.films" target="default.films_recent" label="CreateTableAsTests.sql">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="default.table2" target="default.table1" label="CreateTableAsTests.sql">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="default.table2" target="vcs.table1" label="InsertTests.sql">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="default.table3" target="default.table1" label="CreateTableAsTests.sql">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="default.table4" target="default.table1" label="JoinTests.sql">
+        <attvalues></attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
