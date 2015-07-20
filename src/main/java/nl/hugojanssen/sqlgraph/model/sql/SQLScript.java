@@ -13,6 +13,9 @@ import nl.hugojanssen.sqlgraph.visitors.SQLVisitor;
 
 import org.apache.log4j.Logger;
 
+/**
+ * @author hjanssen
+ */
 public class SQLScript extends File
 {
 	/**
@@ -27,6 +30,12 @@ public class SQLScript extends File
 
 	private final List<SQLVisitor> visitors;
 
+	/**
+	 * @param aFile
+	 * @param visitors
+	 * @throws IllegalArgumentException
+	 * @throws FileNotFoundException
+	 */
 	public SQLScript( File aFile, List<SQLVisitor> visitors ) throws IllegalArgumentException, FileNotFoundException
 	{
 		super( aFile.getAbsolutePath() );
@@ -34,6 +43,12 @@ public class SQLScript extends File
 		this.visitors = visitors;
 	}
 
+	/**
+	 * Parse the SQL script.
+	 * 
+	 * @return the number of errors, or 0 if no errors occurred
+	 * @see gudusoft.gsqlparser.TGSqlParser.parse()
+	 */
 	public int parse()
 	{
 		LOG.info( "Parsing file: " + this );
@@ -41,7 +56,6 @@ public class SQLScript extends File
 		// Parse the file
 		PARSER.setSqlfilename( super.getAbsolutePath() );
 		int result = PARSER.parse();
-
 		if ( result == 0 )
 		{
 			this.handleParserResult();

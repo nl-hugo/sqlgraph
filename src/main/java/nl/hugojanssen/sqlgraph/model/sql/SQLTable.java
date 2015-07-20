@@ -37,38 +37,6 @@ public class SQLTable
 		this.validateState();
 	}
 
-	private void validateState()
-	{
-		// TODO: name must not be null
-		if ( this.schema == null || this.schema.isEmpty() )
-		{
-			this.schema = SQLProperties.getInstance().getProperty( SQLConstants.KEY_DB_DEFAULT_SCHEMA );
-			LOG.warn( "No schema specified, assuming default " + this.schema );
-		}
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString()
-	{
-		return "[" + this.getSchema() + "].[" + this.getName() + "]";
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode()
-	{
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ( ( this.name == null ) ? 0 : this.name.hashCode() );
-		result = prime * result + ( ( this.schema == null ) ? 0 : this.schema.hashCode() );
-		return result;
-	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -131,5 +99,40 @@ public class SQLTable
 	public String getSchema()
 	{
 		return this.schema;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ( ( this.name == null ) ? 0 : this.name.hashCode() );
+		result = prime * result + ( ( this.schema == null ) ? 0 : this.schema.hashCode() );
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "[" + this.getSchema() + "].[" + this.getName() + "]";
+	}
+
+	private void validateState()
+	{
+		if ( this.name == null || this.name.isEmpty() )
+		{
+			throw new IllegalArgumentException( "Table name must not be null or empty" );
+		}
+		if ( this.schema == null || this.schema.isEmpty() )
+		{
+			this.schema = SQLProperties.getInstance().getProperty( SQLConstants.KEY_DB_DEFAULT_SCHEMA );
+			LOG.debug( "No schema specified, assuming default " + this.schema );
+		}
 	}
 }

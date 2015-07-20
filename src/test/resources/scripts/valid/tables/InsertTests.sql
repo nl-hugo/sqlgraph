@@ -11,7 +11,7 @@ insert into table1 (col1, col2)
 select colA, coalesce(colB, 'unknown') from table2;
 
 -- (4) subquery, no named columns, no alias
-insert into vcs.table1
+insert into table1
 select * from table2;
 
 -- (5) subquery, no named columns, with alias

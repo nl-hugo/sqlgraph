@@ -148,7 +148,6 @@ public class TableVisitorListener implements VisitorListener
 
 		if ( this.target != null )
 		{
-
 			SQLGraphModel.getInstance().addGraphElements( this.currFile.getName(), this.target, this.sources );
 		}
 		else
