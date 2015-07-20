@@ -5,6 +5,12 @@ import nl.hugojanssen.sqlgraph.shared.SQLProperties;
 
 import org.apache.log4j.Logger;
 
+/**
+ * A <code>SQLTable</code> object represents a database table. It has a name and a database schema. When no database
+ * schema is provided, a default schema will be inferred from the properties file.
+ * 
+ * @author hjanssen
+ */
 public class SQLTable
 {
 	/** The logger */
@@ -15,9 +21,12 @@ public class SQLTable
 	private final String name;
 
 	/**
-	 * @param model
-	 * @param schema
-	 * @param name
+	 * Construct a new <code>SQLTable</code> object with the specified database schema and table name. A name must be
+	 * provided, while a database schema is optional. When no schema is specified, the default database schema is read
+	 * from the properties.xml file.
+	 * 
+	 * @param schema the database schema
+	 * @param name the table name
 	 */
 	public SQLTable( String schema, String name )
 	{
@@ -30,7 +39,7 @@ public class SQLTable
 
 	private void validateState()
 	{
-		//TODO: name cannot be null
+		// TODO: name must not be null
 		if ( this.schema == null || this.schema.isEmpty() )
 		{
 			this.schema = SQLProperties.getInstance().getProperty( SQLConstants.KEY_DB_DEFAULT_SCHEMA );
@@ -38,12 +47,18 @@ public class SQLTable
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{
 		return "[" + this.getSchema() + "].[" + this.getName() + "]";
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
@@ -54,6 +69,9 @@ public class SQLTable
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals( Object obj )
 	{
@@ -95,11 +113,21 @@ public class SQLTable
 		return true;
 	}
 
+	/**
+	 * Returns the name for this table.
+	 * 
+	 * @return the name for this table
+	 */
 	public String getName()
 	{
 		return this.name;
 	}
 
+	/**
+	 * Returns the database schema for this table.
+	 * 
+	 * @return the database schema for this table
+	 */
 	public String getSchema()
 	{
 		return this.schema;
