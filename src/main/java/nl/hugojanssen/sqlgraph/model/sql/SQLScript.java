@@ -8,7 +8,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import nl.hugojanssen.sqlgraph.shared.SQLConstants;
 import nl.hugojanssen.sqlgraph.shared.SQLParserUtil;
+import nl.hugojanssen.sqlgraph.shared.SQLProperties;
 import nl.hugojanssen.sqlgraph.visitors.SQLVisitor;
 
 import org.apache.log4j.Logger;
@@ -16,10 +18,12 @@ import org.apache.log4j.Logger;
 /**
  * The <code>SQLScript</code> object encapsulates a <code>File</code> object so that the file can be parsed. The file is
  * validated to ensure that it exists in the file system and has the correct file extension (.sql). This object relies
- * on the General SQL Parser to parse the statements in the SQL script. Parse results are communicated to the registered
- * <code>SQLVisitor</code> objects for further processing.<br/>
+ * on the General SQL Parser (GSP) to parse the statements in the SQL script. Parse results are communicated to the
+ * registered <code>SQLVisitor</code> objects for further processing. <br/>
  * <br/>
- * Note that the trial version of the GSParser is limited to file sizes of 10kB and expires 90 days after first use. The
+ * The GSP supports multiple database dialects. The properties.xml file defines which vendor dialect to use.<br/>
+ * <br/>
+ * Note that the trial version of the GSP is limited to file sizes of 10kB and expires 90 days after first use. The
  * limitation on the file size is not enforced by this class.
  * 
  * @author hjanssen
@@ -27,17 +31,19 @@ import org.apache.log4j.Logger;
  */
 public class SQLScript extends File
 {
-	/**
-	 * 
-	 */
+	/** Default id */
 	private static final long serialVersionUID = 1L;
 
 	/** The logger */
 	private final static Logger LOG = Logger.getLogger( SQLScript.class );
 
-	// TODO: read vendor from properties file
-	private static TGSqlParser PARSER = new TGSqlParser( EDbVendor.dbvpostgresql );
+	/** The parser instance */
+	private static TGSqlParser PARSER;
 
+	/** The SQL dialect for this script */
+	private EDbVendor dbVendor;
+
+	/** The list of visitors to notify */
 	private final List<SQLVisitor> visitors;
 
 	/**
@@ -51,8 +57,10 @@ public class SQLScript extends File
 	public SQLScript( File aFile, List<SQLVisitor> visitors ) throws IllegalArgumentException, IOException
 	{
 		super( aFile.getAbsolutePath() );
-		SQLParserUtil.validateSQLFile( super.getAbsoluteFile() );
 		this.visitors = visitors;
+		this.setUp();
+
+		this.validateState();
 	}
 
 	/**
@@ -93,6 +101,40 @@ public class SQLScript extends File
 			SQLStatement statement = new SQLStatement( this, list.get( i ) );
 			statement.setVisitors( this.visitors );
 			statement.visit();
+		}
+	}
+
+	private void setDBVendor()
+	{
+		String vendor = SQLProperties.getInstance().getProperty( SQLConstants.KEY_DB_VENDOR );
+		try
+		{
+			this.dbVendor = EDbVendor.valueOf( vendor );
+		}
+		catch ( IllegalArgumentException e )
+		{
+			LOG.error( "Invalid db.vendor in properties.xml: " + vendor );
+		}
+	}
+
+	private void setUp()
+	{
+		this.setDBVendor();
+		PARSER = new TGSqlParser( this.dbVendor );
+	}
+
+	private void validateState() throws IllegalArgumentException, IOException
+	{
+		SQLParserUtil.validateSQLFile( super.getAbsoluteFile() );
+
+		// validate parser
+		if ( this.dbVendor == null )
+		{
+			throw new IllegalArgumentException( "Could not read db.vendor from properties.xml" );
+		}
+		if ( PARSER == null )
+		{
+			throw new IllegalArgumentException( "Could not instantiate GSP for vendor " + this.dbVendor );
 		}
 	}
 }

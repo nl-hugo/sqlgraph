@@ -41,7 +41,7 @@ public class SQLTableTest
 	public void testHashCode()
 	{
 		assertThat( this.table1.hashCode() ).isEqualTo( 364251310 );
-		assertThat( this.table2.hashCode() ).isEqualTo( -8101825 );
+		assertThat( this.table2.hashCode() ).isEqualTo( -1549349232 ); // 'test'
 	}
 
 	@Test( groups = "construct-table", description = "Test constructor" )

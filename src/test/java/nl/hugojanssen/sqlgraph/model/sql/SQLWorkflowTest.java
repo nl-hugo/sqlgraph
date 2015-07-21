@@ -5,7 +5,6 @@ import static org.fest.assertions.Assertions.assertThat;
 import java.io.File;
 import java.io.IOException;
 
-import nl.hugojanssen.sqlgraph.model.sql.SQLWorkflow;
 import nl.hugojanssen.sqlgraph.visitors.HelloWorldVisitor;
 import nl.hugojanssen.sqlgraph.visitors.TableVisitor;
 import nl.hugojanssen.sqlgraph.visitors.TableVisitorListener;
@@ -103,7 +102,7 @@ public class SQLWorkflowTest
 		try
 		{
 			// the 'invalid' file will return an error code
-			assertThat( this.workflow.parse() ).isEqualTo( 1 );
+			assertThat( this.workflow.parse() ).isGreaterThan( 0 );
 		}
 		catch ( IOException e )
 		{
