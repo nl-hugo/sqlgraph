@@ -68,7 +68,7 @@ public class SQLTableTest
 
 		try
 		{
-			SQLTable table = new SQLTable( "", null );
+			new SQLTable( "", null );
 		}
 		catch ( IllegalArgumentException e )
 		{

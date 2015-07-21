@@ -8,3 +8,6 @@ target/
 test-output/
 log/
 *.txt
+
+# temp files
+src/test/java/nl/hugojanssen/sqlgraph/temp/
