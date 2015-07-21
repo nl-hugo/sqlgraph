@@ -20,7 +20,7 @@ public class SQLProperties
 
 	private Properties properties = new Properties();
 
-	private static String PROPERTIES = "/properties.xml";
+	private final static String PROPERTIES = "/properties.xml";
 
 	private static SQLProperties instance;
 
@@ -72,8 +72,7 @@ public class SQLProperties
 		}
 		catch ( IOException e )
 		{
-			LOG.warn( "Unable to load " + PROPERTIES + ": " + e.getMessage() );
-			e.printStackTrace();
+			LOG.error( "Unable to load " + PROPERTIES + ": " + e.getMessage() );
 		}
 	}
 }

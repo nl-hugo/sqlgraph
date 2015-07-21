@@ -10,6 +10,7 @@ import nl.hugojanssen.sqlgraph.visitors.TableVisitor;
 import nl.hugojanssen.sqlgraph.visitors.TableVisitorListener;
 
 import org.fest.assertions.Fail;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -31,22 +32,20 @@ public class SQLWorkflowTest
 		this.validdir = new File( this.getClass().getResource( "/scripts/valid/" ).getFile() );
 	}
 
-	@Test( groups = "construct-workflow", description = "Tests constructor" )
-	public void testConstructor() throws IOException
+	@Test( groups = "visitors", dependsOnGroups = "addfiles", description = "Test addVisitor" )
+	public void testAddVisitor()
 	{
-		assertThat( this.workflow ).isNotNull();
-		assertThat( this.workflow.getName() ).isEqualTo( "dummy" );
-		assertThat( this.workflow.getWorkflowFiles().size() ).isEqualTo( 0 );
+		this.workflow.addVisitor( null );
 		assertThat( this.workflow.getVisitors().size() ).isEqualTo( 0 );
 
-		// parser should work on empty file list too.
-		assertThat( this.workflow.parse() ).isEqualTo( 0 );
-	}
+		TableVisitorListener listener = new TableVisitorListener();
+		TableVisitor visitor = new TableVisitor( listener );
+		this.workflow.addVisitor( visitor );
 
-	@Test( groups = "addfiles", dependsOnGroups = "construct-workflow", description = "Tests addWorkflowFile null", expectedExceptions = java.lang.IllegalArgumentException.class )
-	public void testAddWorkflowFileNull() throws IOException
-	{
-		this.workflow.addWorkflowFile( null );
+		assertThat( this.workflow.getVisitors().size() ).isEqualTo( 1 );
+
+		this.workflow.addVisitor( new HelloWorldVisitor( listener ) );
+		assertThat( this.workflow.getVisitors().size() ).isEqualTo( 2 );
 	}
 
 	@Test( groups = "addfiles", dependsOnGroups = "construct-workflow", description = "Tests addWorkflowFile" )
@@ -70,31 +69,23 @@ public class SQLWorkflowTest
 		}
 	}
 
-	@Test( groups = "visitors", dependsOnGroups = "addfiles", description = "Test addVisitor" )
-	public void testAddVisitor()
+	@Test( groups = "addfiles", dependsOnGroups = "construct-workflow", description = "Tests addWorkflowFile null", expectedExceptions = java.lang.IllegalArgumentException.class )
+	public void testAddWorkflowFileNull() throws IOException
 	{
-		this.workflow.addVisitor( null );
-		assertThat( this.workflow.getVisitors().size() ).isEqualTo( 0 );
-
-		TableVisitorListener listener = new TableVisitorListener();
-		TableVisitor visitor = new TableVisitor( listener );
-		this.workflow.addVisitor( visitor );
-
-		assertThat( this.workflow.getVisitors().size() ).isEqualTo( 1 );
-
-		this.workflow.addVisitor( new HelloWorldVisitor( listener ) );
-		assertThat( this.workflow.getVisitors().size() ).isEqualTo( 2 );
-
-		this.workflow.removeAllVisitors();
-		assertThat( this.workflow.getVisitors().size() ).isEqualTo( 0 );
+		this.workflow.addWorkflowFile( null );
 	}
 
-	//	@Test( dependsOnGroups = "visitors", description = "Test addVisitor" )
-	//	public void testRemoveAllVisitor()
-	//	{
-	//		this.workflow.removeAllVisitors();
-	//		assertThat( this.workflow.getVisitors().size() ).isEqualTo( 0 );
-	//	}
+	@Test( groups = "construct-workflow", description = "Tests constructor" )
+	public void testConstructor() throws IOException
+	{
+		assertThat( this.workflow ).isNotNull();
+		assertThat( this.workflow.getName() ).isEqualTo( "dummy" );
+		assertThat( this.workflow.getWorkflowFiles().size() ).isEqualTo( 0 );
+		assertThat( this.workflow.getVisitors().size() ).isEqualTo( 0 );
+
+		// parser should work on empty file list too.
+		assertThat( this.workflow.parse() ).isEqualTo( 0 );
+	}
 
 	@Test( dependsOnGroups = "visitors", description = "Test parse" )
 	public void testParse()
@@ -108,5 +99,21 @@ public class SQLWorkflowTest
 		{
 			Fail.fail();
 		}
+	}
+
+	@AfterTest
+	public void testRemoveAllVisitor()
+	{
+		assertThat( this.workflow.getVisitors().size() ).isNotEqualTo( 0 );
+		this.workflow.removeAllVisitors();
+		assertThat( this.workflow.getVisitors().size() ).isEqualTo( 0 );
+	}
+
+	@AfterTest
+	public void testRemoveAllWorkflowFiles()
+	{
+		assertThat( this.workflow.getWorkflowFiles().size() ).isNotEqualTo( 0 );
+		this.workflow.removeAllWorkflowFiles();
+		assertThat( this.workflow.getWorkflowFiles().size() ).isEqualTo( 0 );
 	}
 }

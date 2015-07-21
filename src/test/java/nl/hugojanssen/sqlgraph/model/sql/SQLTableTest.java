@@ -65,5 +65,14 @@ public class SQLTableTest
 
 		SQLTable table3 = new SQLTable( "", this.name );
 		assertThat( table3.getSchema() ).isEqualTo( this.defaultSchema );
+
+		try
+		{
+			SQLTable table = new SQLTable( "", null );
+		}
+		catch ( IllegalArgumentException e )
+		{
+			assertThat( e.getMessage() ).isEqualTo( "Table name must not be null or empty" );
+		}
 	}
 }
