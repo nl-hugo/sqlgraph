@@ -17,11 +17,6 @@ public class SQLConstants
 	 */
 	public final static String KEY_DB_DEFAULT_SCHEMA = "db.schema";
 
-	/**
-	 * The file extension of SQL files
-	 */
-	public final static String EXTENSION_SQL = "sql";
-
 	// Constructor must be private to prevent creating new object
 	private SQLConstants()
 	{

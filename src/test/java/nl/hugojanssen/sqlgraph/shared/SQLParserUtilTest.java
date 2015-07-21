@@ -13,6 +13,7 @@ public class SQLParserUtilTest
 	public void testDirectoryAsSQLFile() throws IOException
 	{
 		File file = new File( this.getClass().getResource( "/scripts/invalid/" ).getFile() );
+		assertThat( SQLParserUtil.getFileExtension( file.getName() ) ).isNull();
 		SQLParserUtil.validateSQLFile( file );
 	}
 
@@ -20,25 +21,27 @@ public class SQLParserUtilTest
 	public void testFileDoesNotExists() throws IllegalArgumentException, IOException
 	{
 		File file = new File( "/scripts/invalid/IDoNotExist.txt" );
+		assertThat( SQLParserUtil.getFileExtension( file.getName() ) ).isNull(); // txt is not defined
 		SQLParserUtil.validateSQLFile( file );
 	}
 
 	@Test( description = "Tests file with null extension" )
 	public void testFileWithNullExtension()
 	{
-		assertThat( SQLParserUtil.getFileExtension( null ) ).isEqualTo( "" );
+		assertThat( SQLParserUtil.getFileExtension( null ) ).isNull();
 	}
 
 	@Test( description = "Tests file without extension" )
 	public void testFileWithoutExtension()
 	{
-		assertThat( SQLParserUtil.getFileExtension( "thisisaveryfancystring" ) ).isEqualTo( "" );
+		assertThat( SQLParserUtil.getFileExtension( "thisisaveryfancystring" ) ).isNull();
 	}
 
 	@Test( description = "Tests invalid sql file" )
 	public void testInvalidSQLFile() throws IllegalArgumentException, IOException
 	{
 		File file = new File( this.getClass().getResource( "/scripts/invalid/InvalidSQLFile.sql" ).getFile() );
+		assertThat( SQLParserUtil.getFileExtension( file.getName() ) ).isEqualTo( EFileExtension.EXTENSION_SQL );
 		SQLParserUtil.validateSQLFile( file );
 	}
 
@@ -46,6 +49,7 @@ public class SQLParserUtilTest
 	public void testNotAnSQLFile() throws IOException
 	{
 		File file = new File( this.getClass().getResource( "/scripts/invalid/NotAnSQLFile.txt" ).getFile() );
+		assertThat( SQLParserUtil.getFileExtension( file.getName() ) ).isNull(); // text is not defined
 		SQLParserUtil.validateSQLFile( file );
 	}
 

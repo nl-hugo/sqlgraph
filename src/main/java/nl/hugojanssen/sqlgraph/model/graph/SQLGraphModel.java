@@ -1,7 +1,5 @@
 package nl.hugojanssen.sqlgraph.model.graph;
 
-import java.awt.Color;
-import java.io.File;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -11,12 +9,6 @@ import org.gephi.graph.api.GraphController;
 import org.gephi.graph.api.GraphFactory;
 import org.gephi.graph.api.GraphModel;
 import org.gephi.graph.api.Node;
-import org.gephi.io.exporter.api.ExportController;
-import org.gephi.io.exporter.spi.GraphExporter;
-import org.gephi.preview.api.PreviewController;
-import org.gephi.preview.api.PreviewModel;
-import org.gephi.preview.api.PreviewProperty;
-import org.gephi.preview.types.EdgeColor;
 import org.gephi.project.api.ProjectController;
 import org.gephi.project.api.Workspace;
 import org.openide.util.Lookup;
@@ -268,43 +260,43 @@ public class SQLGraphModel
 		return this.factory().newNode( aId );
 	}
 
-	public void toFile( File aFile )
-	{
-		LOG.info( "Export graph" );
-		LOG.info( this.graph.getNodeCount() );
-		LOG.info( this.graph.getEdgeCount() );
-
-		// TODO: switch labels on by default
-		// TODO: opacity?
-		// TODO: show labels by default
-		// TODO: set gexf version 1.2
-		// TODO: set default edge/graph type DIRECTED
-		// TODO: YifanHu multilevel(?) layout
-
-		PreviewModel model = Lookup.getDefault().lookup( PreviewController.class ).getModel();
-		model.getProperties().putValue( PreviewProperty.SHOW_NODE_LABELS, Boolean.TRUE );
-		model.getProperties().putValue( PreviewProperty.DIRECTED, Boolean.TRUE );
-		model.getProperties().putValue( PreviewProperty.NODE_LABEL_SHOW_BOX, Boolean.TRUE );
-
-		model.getProperties().putValue( PreviewProperty.EDGE_COLOR, new EdgeColor( Color.BLUE ) );
-
-		//		VizController.getInstance().getTextManager().getModel().setShowNodeLabels( true );
-
-		//Export full graph
-		ExportController ec = Lookup.getDefault().lookup( ExportController.class );
-		GraphExporter exporter = (GraphExporter) ec.getExporter( "gexf" ); //Get GraphML exporter
-		exporter.setExportVisible( true );
-
-		try
-		{
-			ec.exportFile( aFile, exporter );
-		}
-		catch ( Exception ex )
-		{
-			ex.printStackTrace();
-			return;
-		}
-	}
+	//	public void toFile( File aFile )
+	//	{
+	//		LOG.info( "Export graph" );
+	//		LOG.info( this.graph.getNodeCount() );
+	//		LOG.info( this.graph.getEdgeCount() );
+	//
+	//		// TODO: switch labels on by default
+	//		// TODO: opacity?
+	//		// TODO: show labels by default
+	//		// TODO: set gexf version 1.2
+	//		// TODO: set default edge/graph type DIRECTED
+	//		// TODO: YifanHu multilevel(?) layout
+	//
+	//		PreviewModel model = Lookup.getDefault().lookup( PreviewController.class ).getModel();
+	//		model.getProperties().putValue( PreviewProperty.SHOW_NODE_LABELS, Boolean.TRUE );
+	//		model.getProperties().putValue( PreviewProperty.DIRECTED, Boolean.TRUE );
+	//		model.getProperties().putValue( PreviewProperty.NODE_LABEL_SHOW_BOX, Boolean.TRUE );
+	//
+	//		model.getProperties().putValue( PreviewProperty.EDGE_COLOR, new EdgeColor( Color.BLUE ) );
+	//
+	//		//		VizController.getInstance().getTextManager().getModel().setShowNodeLabels( true );
+	//
+	//		//Export full graph
+	//		ExportController ec = Lookup.getDefault().lookup( ExportController.class );
+	//		GraphExporter exporter = (GraphExporter) ec.getExporter( "gexf" ); //Get GraphML exporter
+	//		exporter.setExportVisible( true );
+	//
+	//		try
+	//		{
+	//			ec.exportFile( aFile, exporter );
+	//		}
+	//		catch ( Exception ex )
+	//		{
+	//			ex.printStackTrace();
+	//			return;
+	//		}
+	//	}
 
 	/**
 	 * Returns an array with the nodes in the graph.
@@ -343,5 +335,16 @@ public class SQLGraphModel
 
 		// Initialize the graph
 		this.graph = this.graphModel.getDirectedGraph();
+
+		System.out.println( this.workspace );
+
+	}
+
+	/**
+	 * @return
+	 */
+	public Workspace getCurrentWorkspace()
+	{
+		return this.workspace;
 	}
 }

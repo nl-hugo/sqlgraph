@@ -57,6 +57,6 @@ public class IntegrationTest
 		assertThat( SQLGraphModel.getInstance().getNodeCount() ).isEqualTo( 7 );
 		assertThat( SQLGraphModel.getInstance().getEdgeCount() ).isEqualTo( 4 );
 
-		SQLGraphModel.getInstance().toFile( new File( "examples/valid.gexf" ) );
+		//		SQLGraphModel.getInstance().toFile( new File( "examples/valid.gexf" ) );
 	}
 }

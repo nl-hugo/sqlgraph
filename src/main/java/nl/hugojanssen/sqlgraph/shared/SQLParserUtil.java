@@ -13,20 +13,21 @@ public class SQLParserUtil
 {
 	/**
 	 * Returns the extension of the specified file name. The extension is specified by the characters after the last '.'
-	 * in the file name. Returns <code>""</code> if no file name is specified or if no extension is found.
+	 * in the file name. Returns <code>null</code> if no file name is specified or if no extension is found.
 	 * 
 	 * @param aFileName the file name to get the extension for
-	 * @return the extension of the file if found, an empty string otherwise.
+	 * @return the extension of the file if found, null otherwise.
 	 */
-	public static String getFileExtension( final String aFileName )
+	public static EFileExtension getFileExtension( final String aFileName )
 	{
-		String result = "";
+		EFileExtension result = null;
 		if ( aFileName != null )
 		{
 			int i = aFileName.lastIndexOf( '.' );
 			if ( i > 0 )
 			{
-				result = aFileName.substring( i + 1 );
+				String extension = aFileName.substring( i + 1 );
+				result = EFileExtension.find( extension );
 			}
 		}
 		return result;
@@ -41,7 +42,7 @@ public class SQLParserUtil
 	 */
 	public static boolean isSQLFile( final File aFile )
 	{
-		return SQLParserUtil.getFileExtension( aFile.getName() ).equalsIgnoreCase( SQLConstants.EXTENSION_SQL );
+		return EFileExtension.EXTENSION_SQL.equals( SQLParserUtil.getFileExtension( aFile.getName() ) );
 	}
 
 	/**
