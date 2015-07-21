@@ -31,7 +31,6 @@ public class TableVisitorListener implements VisitorListener
 	@Override
 	public void update( ParseResult aResult )
 	{
-
 		String name = "UNKNOWN";
 		if ( this.currFile != null )
 		{
@@ -40,7 +39,6 @@ public class TableVisitorListener implements VisitorListener
 
 		if ( this.validateParseResult( aResult ) )
 		{
-
 			System.out.println( name + " -- " + aResult.getSource().getClass().getSimpleName() + " -- " + this.statementIdx + " -- "
 				+ aResult.getName() + " -- " + aResult.getRole() );
 
@@ -70,7 +68,6 @@ public class TableVisitorListener implements VisitorListener
 		}
 		else if ( !aResult.getSource().getClass().equals( TableVisitor.class ) )
 		{
-			//			LOG.warn( "Not listening to class " + aResult.getSource().getClass() );
 			result = false;
 		}
 		else
@@ -128,6 +125,7 @@ public class TableVisitorListener implements VisitorListener
 		this.currFile = null;
 		this.sources.clear();
 		this.target = null;
+		this.statementIdx = -1;
 	}
 
 	@Override

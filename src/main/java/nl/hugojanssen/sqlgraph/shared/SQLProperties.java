@@ -8,6 +8,11 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
+/**
+ * This class reads properties that are stored in the <code>properties.xml</code> file.
+ * 
+ * @author hjanssen
+ */
 public class SQLProperties
 {
 	/** The logger */

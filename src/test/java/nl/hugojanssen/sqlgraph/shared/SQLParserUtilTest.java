@@ -3,24 +3,21 @@ package nl.hugojanssen.sqlgraph.shared;
 import static org.fest.assertions.Assertions.assertThat;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import nl.hugojanssen.sqlgraph.shared.SQLParserUtil;
 
 import org.testng.annotations.Test;
 
 public class SQLParserUtilTest
 {
 	@Test( description = "Tests invalid sql file" )
-	public void testInvalidSQLFile() throws IllegalArgumentException, FileNotFoundException
+	public void testInvalidSQLFile() throws IllegalArgumentException, IOException
 	{
 		File file = new File( this.getClass().getResource( "/scripts/invalid/InvalidSQLFile.sql" ).getFile() );
 		SQLParserUtil.validateSQLFile( file );
 	}
 
 	@Test( description = "Tests file without sql extension", expectedExceptions = java.io.FileNotFoundException.class )
-	public void testFileDoesNotExists() throws FileNotFoundException
+	public void testFileDoesNotExists() throws IllegalArgumentException, IOException
 	{
 		File file = new File( "/scripts/invalid/IDoNotExist.txt" );
 		SQLParserUtil.validateSQLFile( file );
