@@ -5,6 +5,8 @@ import static org.fest.assertions.Assertions.assertThat;
 import java.io.File;
 import java.io.IOException;
 
+import nl.hugojanssen.sqlgraph.io.SQLGraphExporter;
+import nl.hugojanssen.sqlgraph.io.SQLGraphImporter;
 import nl.hugojanssen.sqlgraph.model.graph.SQLGraphModel;
 import nl.hugojanssen.sqlgraph.model.sql.SQLWorkflow;
 import nl.hugojanssen.sqlgraph.visitors.TableVisitor;
@@ -18,10 +20,14 @@ public class IntegrationTest
 {
 	private SQLWorkflow workflow;
 
+	private File inFile, outFile;
+
 	@BeforeTest
 	public void setup()
 	{
 		this.workflow = new SQLWorkflow();
+		this.inFile = new File( this.getClass().getResource( "/scripts/valid/" ).getFile() );
+		this.outFile = new File( this.getClass().getResource( "/out/test.gexf" ).getFile() );
 	}
 
 	@BeforeMethod
@@ -39,24 +45,37 @@ public class IntegrationTest
 		assertThat( SQLGraphModel.getInstance().getEdgeCount() ).isEqualTo( 0 );
 	}
 
-	@Test( description = "Test valid SQL scripts" )
-	public void testRealStuff2() throws IllegalArgumentException, IOException
+	@Test( groups = "read-graph", dependsOnGroups = "write-graph", description = "Test valid SQL scripts" )
+	public void testReadGraph() throws IllegalArgumentException, IOException
 	{
+		// make sure the graph is empty before processing
+		SQLGraphModel.getInstance().clear();
 		assertThat( SQLGraphModel.getInstance().getNodeCount() ).isEqualTo( 0 );
+		assertThat( SQLGraphModel.getInstance().getEdgeCount() ).isEqualTo( 0 );
 
-		File file = new File( this.getClass().getResource( "/scripts/valid/" ).getFile() );
-		this.workflow.addWorkflowFile( file );
+		// read the graph
+		SQLGraphImporter.getInstance().importGraph( this.outFile );
+		assertThat( SQLGraphModel.getInstance().getNodeCount() ).isEqualTo( 7 );
+		assertThat( SQLGraphModel.getInstance().getEdgeCount() ).isEqualTo( 4 );
+	}
+
+	@Test( groups = "write-graph", description = "Test valid SQL scripts" )
+	public void testWriteGraph() throws IllegalArgumentException, IOException
+	{
+		// make sure the graph is empty before processing
+		assertThat( SQLGraphModel.getInstance().getNodeCount() ).isEqualTo( 0 );
+		assertThat( SQLGraphModel.getInstance().getEdgeCount() ).isEqualTo( 0 );
+
+		this.workflow.addWorkflowFile( this.inFile );
 		assertThat( this.workflow.getWorkflowFiles().size() ).isEqualTo( 1 );
 
+		// parse
 		this.workflow.parse();
 
-		System.out.println( this.workflow.getWorkflowFiles() );
-		System.out.println( SQLGraphModel.getInstance().getNodes() );
-
-		// FIXME: laatste resultaten uit vorige file gaan mee! (TableVisitorListener.java:147)
 		assertThat( SQLGraphModel.getInstance().getNodeCount() ).isEqualTo( 7 );
 		assertThat( SQLGraphModel.getInstance().getEdgeCount() ).isEqualTo( 4 );
 
-		//		SQLGraphModel.getInstance().toFile( new File( "examples/valid.gexf" ) );
+		// write
+		SQLGraphExporter.getInstance().toGEXF( this.outFile );
 	}
 }
