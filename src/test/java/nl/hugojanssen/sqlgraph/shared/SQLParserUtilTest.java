@@ -9,6 +9,14 @@ import org.testng.annotations.Test;
 
 public class SQLParserUtilTest
 {
+	@Test( description = "Tests file without gexf extension", expectedExceptions = java.lang.IllegalArgumentException.class )
+	public void testDirectoryAsGEXFFile() throws IOException
+	{
+		File file = new File( this.getClass().getResource( "/scripts/invalid/" ).getFile() );
+		assertThat( SQLParserUtil.getFileExtension( file.getName() ) ).isNull();
+		SQLParserUtil.validateGEXFFile( file );
+	}
+
 	@Test( description = "Tests file without sql extension", expectedExceptions = java.lang.IllegalArgumentException.class )
 	public void testDirectoryAsSQLFile() throws IOException
 	{
@@ -46,6 +54,14 @@ public class SQLParserUtilTest
 	}
 
 	@Test( description = "Tests file without sql extension", expectedExceptions = java.lang.IllegalArgumentException.class )
+	public void testNotAnGEXFFile() throws IOException
+	{
+		File file = new File( this.getClass().getResource( "/scripts/invalid/NotAnSQLFile.txt" ).getFile() );
+		assertThat( SQLParserUtil.getFileExtension( file.getName() ) ).isNull(); // text is not defined
+		SQLParserUtil.validateGEXFFile( file );
+	}
+
+	@Test( description = "Tests file without sql extension", expectedExceptions = java.lang.IllegalArgumentException.class )
 	public void testNotAnSQLFile() throws IOException
 	{
 		File file = new File( this.getClass().getResource( "/scripts/invalid/NotAnSQLFile.txt" ).getFile() );
@@ -57,5 +73,13 @@ public class SQLParserUtilTest
 	public void testNullFile() throws IOException
 	{
 		SQLParserUtil.validateSQLFile( null );
+	}
+
+	@Test( description = "Tests valid gexf file" )
+	public void testValidGEXFFile() throws IllegalArgumentException, IOException
+	{
+		File file = new File( this.getClass().getResource( "/out/test.gexf" ).getFile() );
+		assertThat( SQLParserUtil.isGEXFFile( file ) ).isTrue();
+		SQLParserUtil.validateGEXFFile( file );
 	}
 }
