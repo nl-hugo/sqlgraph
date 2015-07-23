@@ -46,6 +46,18 @@ public class SQLParserUtil
 	}
 
 	/**
+	 * Checks if the specified file is an GEXF file. A file is assumed to be an GEXF file, if the file name ends with
+	 * .gexf (ignoring case).
+	 * 
+	 * @param aFile the file to check
+	 * @return true if the file is an GEXF file, false otherwise
+	 */
+	public static boolean isGEXFFile( final File aFile )
+	{
+		return EFileExtension.EXTENSION_GEXF.equals( SQLParserUtil.getFileExtension( aFile.getName() ) );
+	}
+
+	/**
 	 * Validates the specified file or directory against the following conditions:<br/>
 	 * <br/>
 	 * - the file is defined (not null) <br/>
@@ -92,6 +104,29 @@ public class SQLParserUtil
 		if ( !aFile.isFile() || !SQLParserUtil.isSQLFile( aFile ) )
 		{
 			throw new IllegalArgumentException( "Not an SQL file: " + aFile );
+		}
+	}
+
+	/**
+	 * Validates the specified file as GEXF file. In addition to the conditions in <code>validateFileOrDirectory</code>
+	 * it also checks the following conditions: <br/>
+	 * <br/>
+	 * - the file is an actual file (and not a directory) <br/>
+	 * - the file is an GEXF file <br/>
+	 * 
+	 * @param aFile the file to validate
+	 * @throws IllegalArgumentException when the file is undefined (null) or not an GEXF file (but a directory or file
+	 *             with an extension other than .gexf)
+	 * @throws IOException when the file does not exists or is not readable
+	 * @see nl.hugojanssen.sqlgraph.shared.SQLParserUtil.validateFileOrDirectory
+	 */
+	public static void validateGEXFFile( final File aFile ) throws IllegalArgumentException, IOException
+	{
+		validateFileOrDirectory( aFile );
+
+		if ( !aFile.isFile() || !SQLParserUtil.isGEXFFile( aFile ) )
+		{
+			throw new IllegalArgumentException( "Not an GEXF file: " + aFile );
 		}
 	}
 }

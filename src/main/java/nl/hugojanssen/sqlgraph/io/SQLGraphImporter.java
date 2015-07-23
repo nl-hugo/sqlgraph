@@ -1,6 +1,7 @@
 package nl.hugojanssen.sqlgraph.io;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import nl.hugojanssen.sqlgraph.model.graph.SQLGraphModel;
@@ -14,14 +15,21 @@ import org.gephi.io.processor.plugin.DefaultProcessor;
 import org.gephi.project.api.Workspace;
 import org.openide.util.Lookup;
 
+/**
+ * Imports a graph from the specified file and appends it to the current workspace.
+ * 
+ * @author hjanssen
+ */
 public class SQLGraphImporter
 {
 	/** The logger */
 	private final static Logger LOG = Logger.getLogger( SQLGraphImporter.class );
 
-	private ImportController importController = Lookup.getDefault().lookup( ImportController.class );
-
-	// could be synchronized
+	/**
+	 * Returns an instance of the <code>SQLGraphImporter</code> object and creates a new object if it does not exist.
+	 * 
+	 * @return an instance of the <code>SQLGraphImporter</code> object
+	 */
 	public static SQLGraphImporter getInstance()
 	{
 		if ( instance == null )
@@ -31,9 +39,13 @@ public class SQLGraphImporter
 		return instance;
 	}
 
+	private ImportController importController = Lookup.getDefault().lookup( ImportController.class );
+
 	private Workspace workspace;
 
 	private static SQLGraphImporter instance;
+
+	private Container container;
 
 	// Constructor must be protected or private to prevent creating new object
 	protected SQLGraphImporter()
@@ -41,29 +53,38 @@ public class SQLGraphImporter
 		this.setUp();
 	}
 
-	public void importGraph( File aFile ) throws IOException
+	/**
+	 * Imports a graph from the specified file.
+	 * 
+	 * @param aFile the file to import the graph from
+	 * @throws IllegalArgumentException when the file is undefined (null) or not an GEXF file (but a directory or file
+	 *             with an extension other than .gexf)
+	 * @throws IOException when the file does not exists or is not readable
+	 */
+	public void importGraph( File aFile ) throws IOException, IllegalArgumentException
 	{
-		SQLParserUtil.validateFileOrDirectory( aFile );
+		LOG.debug( "Read graph from file " + aFile );
+		SQLParserUtil.validateGEXFFile( aFile );
 
-		//Import file       
-		Container container;
 		try
 		{
-			container = this.importController.importFile( aFile );
-			container.getLoader().setEdgeDefault( EdgeDefault.DIRECTED ); //Force DIRECTED
+			this.container = this.importController.importFile( aFile );
 		}
-		catch ( Exception ex )
+		catch ( FileNotFoundException e )
 		{
-			ex.printStackTrace();
-			return;
+			LOG.error( "Unable to load graph: " + e.getMessage() );
 		}
+		this.process();
+	}
 
-		//Append imported data to GraphAPI
-		this.importController.process( container, new DefaultProcessor(), this.workspace );
-
-		//See if graph is well imported
-		System.out.println( "Nodes: " + SQLGraphModel.getInstance().getNodeCount() );
-		System.out.println( "Edges: " + SQLGraphModel.getInstance().getEdgeCount() );
+	private void process()
+	{
+		if ( this.container != null )
+		{
+			//Append imported data to GraphAPI
+			this.container.getLoader().setEdgeDefault( EdgeDefault.DIRECTED ); //Force DIRECTED
+			this.importController.process( this.container, new DefaultProcessor(), this.workspace );
+		}
 	}
 
 	private void setUp()
