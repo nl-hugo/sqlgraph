@@ -1,10 +1,10 @@
 package nl.hugojanssen.sqlgraph.io;
 
-import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 
 import nl.hugojanssen.sqlgraph.model.graph.SQLGraphModel;
+import nl.hugojanssen.sqlgraph.model.graph.SQLGraphModelDecorator;
 import nl.hugojanssen.sqlgraph.shared.EFileExtension;
 import nl.hugojanssen.sqlgraph.shared.SQLParserUtil;
 
@@ -13,10 +13,6 @@ import org.gephi.io.exporter.api.ExportController;
 import org.gephi.io.exporter.preview.PDFExporter;
 import org.gephi.io.exporter.spi.Exporter;
 import org.gephi.io.exporter.spi.GraphExporter;
-import org.gephi.preview.api.PreviewController;
-import org.gephi.preview.api.PreviewModel;
-import org.gephi.preview.api.PreviewProperty;
-import org.gephi.preview.types.EdgeColor;
 import org.gephi.project.api.Workspace;
 import org.openide.util.Lookup;
 
@@ -55,6 +51,9 @@ public class SQLGraphExporter
 
 		EFileExtension extension = SQLParserUtil.getFileExtension( aFile.getName() );
 
+		//		// Layout and all
+		//		SQLGraphModelDecorator.decorate( this.workspace );
+		//
 		switch ( extension )
 		{
 			case EXTENSION_PDF:
@@ -67,7 +66,6 @@ public class SQLGraphExporter
 				LOG.warn( "Unknown extension " + extension + " for output file " + aFile.getName() );
 				break;
 		}
-
 	}
 
 	public void toPDF( File aFile )
@@ -88,18 +86,8 @@ public class SQLGraphExporter
 
 	private void export( File aFile, Exporter exporter )
 	{
-		//		this.workspace = SQLGraphModel.getInstance().getWorkSpace();
-		System.out.println( this.workspace );
-
-		//Get a graph model - it exists because we have a workspace
-		//		this.graphModel = Lookup.getDefault().lookup( GraphController.class ).getModel();
-		//		System.out.println( this.graphModel );
-
-		// Initialize the graph
-		//		this.graph = this.graphModel.getDirectedGraph();
-		//		System.out.println( this.graph );
-		//		System.out.println( this.graph.getNodeCount() );
-		//		System.out.println( this.graph.getEdgeCount() );
+		// Layout and all
+		SQLGraphModelDecorator.decorate( this.workspace );
 
 		try
 		{
@@ -112,46 +100,46 @@ public class SQLGraphExporter
 		}
 	}
 
-	public void toFile( File aFile )
-	{
-		//		LOG.info( "Export graph" );
-		//		LOG.info( this.graph.getNodeCount() );
-		//		LOG.info( this.graph.getEdgeCount() );
-
-		// TODO: switch labels on by default
-		// TODO: opacity?
-		// TODO: show labels by default
-		// TODO: set gexf version 1.2
-		// TODO: set default edge/graph type DIRECTED
-		// TODO: YifanHu multilevel(?) layout
-
-		PreviewModel model = Lookup.getDefault().lookup( PreviewController.class ).getModel();
-		model.getProperties().putValue( PreviewProperty.SHOW_NODE_LABELS, Boolean.TRUE );
-		model.getProperties().putValue( PreviewProperty.DIRECTED, Boolean.TRUE );
-		model.getProperties().putValue( PreviewProperty.NODE_LABEL_SHOW_BOX, Boolean.TRUE );
-
-		model.getProperties().putValue( PreviewProperty.EDGE_COLOR, new EdgeColor( Color.BLUE ) );
-
-		//		VizController.getInstance().getTextManager().getModel().setShowNodeLabels( true );
-
-		this.toGEXF( aFile );
-		this.toPDF( aFile );
-
-		//		//Export full graph
-		//		ExportController ec = Lookup.getDefault().lookup( ExportController.class );
-		//		GraphExporter exporter = (GraphExporter) ec.getExporter( "gexf" ); //Get GraphML exporter
-		//		exporter.setExportVisible( true );
-		//
-		//		try
-		//		{
-		//			ec.exportFile( aFile, exporter );
-		//		}
-		//		catch ( Exception ex )
-		//		{
-		//			ex.printStackTrace();
-		//			return;
-		//		}
-	}
+	//	public void toFile( File aFile )
+	//	{
+	//		//		LOG.info( "Export graph" );
+	//		//		LOG.info( this.graph.getNodeCount() );
+	//		//		LOG.info( this.graph.getEdgeCount() );
+	//
+	//		// TODO: switch labels on by default
+	//		// TODO: opacity?
+	//		// TODO: show labels by default
+	//		// TODO: set gexf version 1.2
+	//		// TODO: set default edge/graph type DIRECTED
+	//		// TODO: YifanHu multilevel(?) layout
+	//
+	//		PreviewModel model = Lookup.getDefault().lookup( PreviewController.class ).getModel();
+	//		model.getProperties().putValue( PreviewProperty.SHOW_NODE_LABELS, Boolean.TRUE );
+	//		model.getProperties().putValue( PreviewProperty.DIRECTED, Boolean.TRUE );
+	//		model.getProperties().putValue( PreviewProperty.NODE_LABEL_SHOW_BOX, Boolean.TRUE );
+	//
+	//		model.getProperties().putValue( PreviewProperty.EDGE_COLOR, new EdgeColor( Color.BLUE ) );
+	//
+	//		//		VizController.getInstance().getTextManager().getModel().setShowNodeLabels( true );
+	//
+	//		this.toGEXF( aFile );
+	//		this.toPDF( aFile );
+	//
+	//		//		//Export full graph
+	//		//		ExportController ec = Lookup.getDefault().lookup( ExportController.class );
+	//		//		GraphExporter exporter = (GraphExporter) ec.getExporter( "gexf" ); //Get GraphML exporter
+	//		//		exporter.setExportVisible( true );
+	//		//
+	//		//		try
+	//		//		{
+	//		//			ec.exportFile( aFile, exporter );
+	//		//		}
+	//		//		catch ( Exception ex )
+	//		//		{
+	//		//			ex.printStackTrace();
+	//		//			return;
+	//		//		}
+	//	}
 
 	private void setUp()
 	{

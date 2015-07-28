@@ -335,9 +335,6 @@ public class SQLGraphModel
 
 		// Initialize the graph
 		this.graph = this.graphModel.getDirectedGraph();
-
-		System.out.println( this.workspace );
-
 	}
 
 	/**
