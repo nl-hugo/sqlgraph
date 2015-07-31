@@ -19,4 +19,9 @@ from table2 t0
 left join table3 t01
 on t0.colA = t01.colA
 ;
-  
+
+-- (3) create temp table
+CREATE TEMP TABLE films_recent as select * from films;
+
+-- (4) create temporary table
+CREATE TEMPORARY TABLE films_ancient as select * from films_recent;

@@ -9,14 +9,19 @@ package nl.hugojanssen.sqlgraph.model.sql;
 public enum EClauseType
 {
 	/**
-	 * The SQL object is a source object
+	 * The SQL object is a source table
 	 */
 	SOURCE,
 
 	/**
-	 * The SQL object is a target object
+	 * The SQL object is a target table
 	 */
 	TARGET,
+
+	/**
+	 * The SQL object is a temporary target table; i.e. the table only exists until the end of a session
+	 */
+	TEMP_TARGET,
 
 	/**
 	 * The role of the SQL object is unknown

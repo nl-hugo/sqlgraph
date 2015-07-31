@@ -2,6 +2,7 @@ package nl.hugojanssen.sqlgraph.visitors;
 
 import gudusoft.gsqlparser.ETableSource;
 import gudusoft.gsqlparser.TBaseType;
+import gudusoft.gsqlparser.TSourceTokenList;
 import gudusoft.gsqlparser.nodes.TJoin;
 import gudusoft.gsqlparser.nodes.TJoinItem;
 import gudusoft.gsqlparser.nodes.TTable;
@@ -144,10 +145,22 @@ public class TableVisitor extends /*TParseTreeVisitor*/SQLVisitor
 		this.currRole = EClauseType.TARGET;
 	}
 
+	private void setTableRole( TSourceTokenList list )
+	{
+		if ( TVisitorUtil.containsTempToken( list ) )
+		{
+			this.currRole = EClauseType.TEMP_TARGET;
+		}
+		else
+		{
+			this.currRole = EClauseType.TARGET;
+		}
+	}
+
 	@Override
 	public void preVisit( TCreateTableSqlStatement statement )
 	{
-		this.currRole = EClauseType.TARGET;
+		this.setTableRole( statement.sourcetokenlist );
 		TTable target = statement.getTargetTable();
 		target.accept( this );
 	}
@@ -180,7 +193,8 @@ public class TableVisitor extends /*TParseTreeVisitor*/SQLVisitor
 	 */
 	private void addParseResult( TTable table )
 	{
-		ParseResult result = new ParseResult( this, table.getPrefixSchema(), table.getName(), this.currRole, table.getLineNo(), table.getColumnNo() );
+		ParseResult result =
+			new ParseResult( this, table.getPrefixSchema(), table.getName(), this.currRole, table.getLineNo(), table.getColumnNo() );
 		LOG.debug( "### " + result );
 		super.getListener().update( result );
 	}

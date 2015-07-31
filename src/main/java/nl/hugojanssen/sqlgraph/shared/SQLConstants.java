@@ -17,6 +17,12 @@ public class SQLConstants
 	 */
 	public final static String KEY_DB_DEFAULT_SCHEMA = "db.schema";
 
+	/**
+	 * The name of the temporary schema in the properties file. Note that this schema does not actually exists in the
+	 * database and is used for display purposes only.
+	 */
+	public static final String KEY_DB_TEMP_SCHEMA = "db.temp.schema";
+
 	// Constructor must be private to prevent creating new object
 	private SQLConstants()
 	{

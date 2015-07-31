@@ -4,4 +4,5 @@
 	<comment>Database default properties</comment>
 	<entry key="db.vendor">dbvpostgresql</entry>
 	<entry key="db.schema">default</entry>
+	<entry key="db.temp.schema">TEMP</entry>
 </properties>

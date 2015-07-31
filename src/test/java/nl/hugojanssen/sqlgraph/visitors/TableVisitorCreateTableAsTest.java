@@ -42,9 +42,23 @@ public class TableVisitorCreateTableAsTest
 		//		this.helper.testParseResult( 0, "films", 5, EClauseType.TARGET );
 	}
 
+	@Test( description = "Creates table with temp keyword" )
+	public void testCreateTempTable()
+	{
+		this.helper.testParseResult( 5, "films_recent", 24, EClauseType.TEMP_TARGET );
+		this.helper.testParseResult( 6, "films", 24, EClauseType.SOURCE );
+	}
+
+	@Test( description = "Creates table with temporary keyword" )
+	public void testCreateTemporaryTable()
+	{
+		this.helper.testParseResult( 7, "films_ancient", 27, EClauseType.TEMP_TARGET );
+		this.helper.testParseResult( 8, "films_recent", 27, EClauseType.SOURCE );
+	}
+
 	@Test( description = "Tests size of the resultset" )
 	public void testResultSet()
 	{
-		assertThat( this.helper.getResultSetSize() ).isEqualTo( 5 );
+		assertThat( this.helper.getResultSetSize() ).isEqualTo( 9 );
 	}
 }

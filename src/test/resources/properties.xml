@@ -5,4 +5,5 @@
 	<entry key="db.vendor">dbvpostgresql</entry>
 	<entry key="db.vendor.test">idonotexist</entry>
 	<entry key="db.schema">test</entry>
+	<entry key="db.temp.schema">TEMP</entry>
 </properties>

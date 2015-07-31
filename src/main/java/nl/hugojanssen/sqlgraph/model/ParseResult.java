@@ -170,11 +170,19 @@ public class ParseResult extends EventObject
 		{
 			throw new IllegalArgumentException( "Name must be non-null and non-empty." );
 		}
-		if ( this.schema == null || this.schema.isEmpty() )
+		if ( ( this.schema == null || this.schema.isEmpty() ) )
 		{
-			this.schema = SQLProperties.getInstance().getProperty( SQLConstants.KEY_DB_DEFAULT_SCHEMA );
+			if ( this.role != null && this.role.equals( EClauseType.TEMP_TARGET ) )
+			{
+				this.schema = SQLProperties.getInstance().getProperty( SQLConstants.KEY_DB_TEMP_SCHEMA );
+			}
+			else
+			{
+				this.schema = SQLProperties.getInstance().getProperty( SQLConstants.KEY_DB_DEFAULT_SCHEMA );
+			}
 		}
-		if ( this.role == null || !this.role.equals( EClauseType.SOURCE ) || !this.role.equals( EClauseType.TARGET ) )
+		if ( this.role == null || !this.role.equals( EClauseType.SOURCE ) || !this.role.equals( EClauseType.TARGET )
+			|| !this.role.equals( EClauseType.TEMP_TARGET ) )
 		{
 			//	throw new IllegalArgumentException( "Role must be SOURCE or TARGET for " + this.name );
 		}
