@@ -55,8 +55,8 @@ public class IntegrationTest
 
 		// read the graph
 		SQLGraphImporter.getInstance().importGraph( this.outFile );
-		assertThat( SQLGraphModel.getInstance().getNodeCount() ).isEqualTo( 7 );
-		assertThat( SQLGraphModel.getInstance().getEdgeCount() ).isEqualTo( 4 );
+		assertThat( SQLGraphModel.getInstance().getNodeCount() ).isEqualTo( 9 );
+		assertThat( SQLGraphModel.getInstance().getEdgeCount() ).isEqualTo( 6 );
 	}
 
 	@Test( groups = "write-graph", description = "Test valid SQL scripts" )
@@ -72,8 +72,8 @@ public class IntegrationTest
 		// parse
 		this.workflow.parse();
 
-		assertThat( SQLGraphModel.getInstance().getNodeCount() ).isEqualTo( 7 );
-		assertThat( SQLGraphModel.getInstance().getEdgeCount() ).isEqualTo( 4 );
+		assertThat( SQLGraphModel.getInstance().getNodeCount() ).isEqualTo( 9 );
+		assertThat( SQLGraphModel.getInstance().getEdgeCount() ).isEqualTo( 6 );
 
 		// write
 		SQLGraphExporter.getInstance().toGEXF( this.outFile );

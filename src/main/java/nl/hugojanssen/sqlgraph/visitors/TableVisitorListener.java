@@ -50,6 +50,7 @@ public class TableVisitorListener implements VisitorListener
 					this.addSource( aResult );
 					break;
 				case TARGET:
+				case TEMP_TARGET:
 					this.setTarget( aResult );
 					break;
 				default:
@@ -79,16 +80,15 @@ public class TableVisitorListener implements VisitorListener
 
 	private boolean validateRole( String aName, EClauseType aRole )
 	{
-		boolean result = true;
-		if ( aRole == null )
+		boolean result = false;
+		try
 		{
-			LOG.warn( "Ignoring " + aName + ", object has no role." );
-			result = false;
+			EClauseType.valueOf( aRole.name() );
+			result = true;
 		}
-		else if ( !aRole.equals( EClauseType.SOURCE ) && !aRole.equals( EClauseType.TARGET ) )
+		catch ( IllegalArgumentException e )
 		{
-			LOG.warn( "Ignoring " + aName + ", unknown role " + aRole );
-			result = false;
+			LOG.warn( "Ignoring " + aName + ", object has an invalid role: " + aRole );
 		}
 		return result;
 	}
